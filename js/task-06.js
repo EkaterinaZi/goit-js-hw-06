@@ -1,12 +1,16 @@
 const inputEl = document.querySelector('#validation-input')
-console.log(inputEl)
 
 function onInputBlur() {
-    if (inputEl.value.length !== 6) {
-return inputEl.classList.add('invalid')
+    
+    if (inputEl.value.length === +inputEl.dataset.length) {
+        inputEl.classList.add('valid')
+        inputEl.classList.remove('invalid')
     } else {
-return inputEl.classList.add('valid')
+       inputEl.classList.add('invalid')
+       inputEl.classList.remove('valid')
     }
 }
 
 inputEl.addEventListener('blur', onInputBlur)
+
+

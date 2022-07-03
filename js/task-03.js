@@ -13,14 +13,7 @@ const images = [
   },
 ];
 
-const createGallery = (images) => 
-  images.reduce((acc, image) => acc + `<li><img class= img src=${image.url} alt= ${image.alt} width= 350 height= 200 ></li>`, '');
-
-
-console.log(createGallery(images))
-
 const listEl = document.querySelector(".gallery");
+const createGallery = images.map((image) => `<li><img class= img src=${image.url} alt= ${image.alt} width= 350 height= 200 ></li>`).join('')
 
-console.log(listEl)
-
-listEl.insertAdjacentHTML('afterbegin', createGallery(images));
+listEl.insertAdjacentHTML('afterbegin', createGallery);
