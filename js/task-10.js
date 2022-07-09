@@ -2,31 +2,22 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-
-//  Цю задачу виконати не вдалось. Буду вдячна, якщо спрямуєте,
-//  чи вірно взагалі в мене був хід думок?
-
-
-
 const number = document.querySelector('#controls input')
 const createEl = document.querySelector('[data-create]')
 const destroyEl = document.querySelector('[data-destroy]')
 const div = document.querySelector('#boxes')
 
 function amountEl() {
-  let amount = (Number(number.value))
-  console.log(amount)
+  createBox(Number(number.value))
 }
-number.addEventListener('input', amountEl)
+
 
 function createBox() {
   let widthBox = 20;
- 
- for (let i = 0; i < number.value; i += 1) {
-    if (number.value > 1) {
-      widthBox += 10
-    }
-   
+  div.innerHTML = "";
+ for (let i = 0; i < Number(number.value); i += 1) {
+  
+   widthBox += 10
    let box = document.createElement("div");
    box.style.backgroundColor = getRandomHexColor();
    box.style.width = `${ widthBox }px`;
@@ -36,7 +27,7 @@ function createBox() {
 }
 
 function deleteBox() {
-  div.remove(div.childNodes)
+  div.innerHTML = "";
 }
 
 createEl.addEventListener('click', createBox)

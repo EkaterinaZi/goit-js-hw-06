@@ -6,7 +6,19 @@ const ingredients = [
   'Herbs',
   'Condiments',
 ];
-
-const list = ingredients.map((item) => `<li class= 'item'>${item}</li>`).join('')
 const allIngredients = document.querySelector('#ingredients');
-allIngredients.insertAdjacentHTML('afterbegin', list)
+const list =
+  ingredients.map((ingredient) => {
+    const ingredientEl = document.createElement('li');
+    ingredientEl.textContent = `${ingredient}`;
+    allIngredients.append(ingredientEl);
+  }
+  )
+
+  
+
+
+
+
+
+
